@@ -356,7 +356,7 @@ static int hbtp_input_report_events(struct hbtp_data *hbtp_data,
 static int reg_set_load_check(struct regulator *reg, int load_uA)
 {
 	return (regulator_count_voltages(reg) > 0) ?
-		regulator_set_load(reg, load_uA) : 0;
+		regulator_set_optimum_mode(reg, load_uA) : 0;
 }
 
 static int hbtp_pdev_power_on(struct hbtp_data *hbtp, bool on)
